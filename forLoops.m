@@ -11,7 +11,9 @@ count_j = 0;
 for j = 1:10
     if j > 6
         count_j = count_j + 1;
+        
     end
 end
 count_j
 j
+

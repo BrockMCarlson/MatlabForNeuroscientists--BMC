@@ -1,4 +1,4 @@
-function outpt=Treisman(n, search, target)
+function outpt = treisman(n, search, target)
 %n=number of x's and o's you want plotted;
 %search='c' or 'f'; 'c' means conjunctive search, 'f' means feature search
 %target= 'y' or 'n' for presence of target in image;
