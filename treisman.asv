@@ -60,7 +60,7 @@ elseif(strcmp(target, 'y') && strcmp(search, 'c')) % conjunction visual search
         g=text(x(i), y(i), not_target,'color', not_col);
     end
 elseif(strcmp(target, 'n') && strcmp(search, 'c')) % conjunction visual search
-% This still needs fixing
+
  for i=1:n
         if(i<=n/2)
           char='X';
@@ -68,7 +68,61 @@ elseif(strcmp(target, 'n') && strcmp(search, 'c')) % conjunction visual search
           char='O';
         end
         g=text(x(i), y(i), char, 'color', not_col);
- end
+    end
+      z=rand(1,1);
+      if(z <= 0.5)
+          unbal_feature='shape';
+      else
+          unbal_feature='color';
+      end
+      if(strcmp(unbal_feature, 'shape'))
+          g=text(x(1), y(1), target_sym);
+          set(g, 'color', target_col);
+          for i=2:(n/4+1)
+              g=text(x(i), y(i), target_sym);
+              set(g, 'color', not_col);
+          end
+          for i=(n/4+2):3*n/4
+              g=text(x(i), y(i), not_target);
+              set(g, 'color', target_col);
+          end
+          for i=(3*n/4+1):n
+              g=text(x(i), y(i), not_target);
+              set(g, 'color', not_col);
+          end
+      else
+          g=text(x(1), y(1), target_sym);
+          set(g, 'color', target_col);
+          for i=2:(n/4+1)
+              g=text(x(i), y(i), not_target);
+              set(g, 'color', not_col);
+          end
+          for i=(n/4+2):3*n/4
+             g=text(x(i), y(i), target_sym);
+              set(g, 'color', not_col);
+         end
+          for i=(3*n/4+1):n
+              g=text(x(i), y(i), not_target);
+              set(g, 'color', target_col);
+          end
+      end
+else
+     for i=1:(n/4)
+        g=text(x(i), y(i), target_sym);
+        set(g, 'color', target_col);
+      end
+     for i=(n/4+1):(n/2)
+        g=text(x(i), y(i), not_target);
+        set(g, 'color', not_col);
+      end
+      for i=(n/2+1):(3*n/4)
+        g=text(x(i), y(i), not_target);
+        set(g, 'color', target_col);
+      end
+      for i=(3*n/4+1):n
+        g=text(x(i), y(i), target_sym);
+        set(g, 'color', not_col);
+      end
 end
 
 outpt=1;
