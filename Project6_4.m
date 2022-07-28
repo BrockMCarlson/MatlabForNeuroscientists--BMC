@@ -1,40 +1,6 @@
-% %% 6.3
-% format long;
-% ii = 1;
-% t = [];
-% while ii < 1000000
-%     tic
-%     ii = ii + 1;
-%     t(ii,1) = toc;
-% end
-% figure
-% plot(t)
-
-%% project 6.4 - chapter info
-% % % clear
-% % % close all
-% % % 
-% % % h = figure;
-% % % get(h)
-% % % set(h, 'Pointer', 'crosshair')
-% % % set(h,'visible','off')
-% % % set(h,'visible','on')
-% % % g = text(0.5,0.5,'This is pretty cool')
-% % % set(g,'color','r','FontSize',20)
-% % % 
-% % % pause %Waiting for single key press
-% % % h725 = get(h,'CurrentCharacter');
-% % % 
-% % % % Pearson correlation
-% % % a = rand(100,2); %Creates 2 columns of 100 rand vals each, puts it in var a
-% % % b = corrcoef(a(:,1),a(:,2)); %Calculates the pearson corr between 2 cols
-% % % 
-% % % % p here should be high to indicate that the values were obtained by chance
-% % % % alone
-% % % [magnitude, p] = corrcoef(a(:,1),a(:,2)); 
-
 %% Project 6.4 draft
 %main script
+% Comment HERE: ____ What is the goal of this code?
 start=figure;
 text(0.2, 0.7, 'Pop out: Press any key to begin the 1st block');
 text(0.05, 0.5, 'For the trials press ''t'' if there''s a target and ''n'' if there isn''t a target');
@@ -44,9 +10,11 @@ right = 0;
 wrong = 0;
 trial_block=30;
 
-%1st block pop-out with n objects; we do 30 trials;
-n=12;
-t_target4pop=[];
+%% 1st block pop-out with n objects; we do 30 trials;
+% Comment here: What does this section do? ________________
+
+n=12; % Number of targets on screen
+t_target4pop=[]; % pre-allocating our behavioral collection variables
 t_no_target4pop=[];
 z=randperm(trial_block);
 for i=1:trial_block
@@ -56,6 +24,7 @@ for i=1:trial_block
       target='n';
     end
     g = treisman(n, 'p', target);
+    
     tic;
     pause;
     temp_t=toc;
@@ -79,6 +48,7 @@ t_no_targ4pop_mean=mean(t_no_target4pop);
 
 
 %% Now we begin the conjunction search.
+% What does this section do? ____________
 next=figure;
 text(0.2, 0.7, 'Conjunction: Press any key to begin the 1st blocks');
 text(0.05, 0.5, 'For the trials press ''t'' if there''s a target and ''n'' if there isn''t a target');
@@ -86,7 +56,7 @@ pause;
 close;
 rightc = 0;
 wrongc = 0;
-trial_block=30;ntt
+trial_block=30;
 %1st block conjunction with 4 objects; we do 30 trials;
 n=12;
 t_target4con=[];
